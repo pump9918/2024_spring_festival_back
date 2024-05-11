@@ -84,7 +84,7 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          docker stop mua-dongguk-server-was
-          docker rm mua-dongguk-server-was
+          docker stop mua-dongguk-server
+          docker rm mua-dongguk-server
           docker image rm ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPONAME }}
-          docker run -d --net festival -v festival-media:/app/media -v festival-static:/app/static -e TZ=Asia/Seoul -p 8000:8000 --name mua-dongguk-server-was ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPONAME }}
+          docker run -d --net festival -v festival-media:/app/media -v festival-static:/app/static -e TZ=Asia/Seoul -p 8000:8000 --name mua-dongguk-server ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPONAME }}
